@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../assets/logo.svg';
 import './App.css';
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
       <header className="App-header">
@@ -12,11 +12,11 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://docs.cypress.io/guides/overview/why-cypress"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn Cypress
         </a>
       </header>
     </div>
