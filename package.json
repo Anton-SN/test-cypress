@@ -35,7 +35,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test-dev": "react-scripts test --watchAll=false",
+    "test-dev": "react-scripts test --watchAll=false && cypress run",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src"
   },
