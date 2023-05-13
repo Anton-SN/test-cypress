@@ -1,6 +1,6 @@
 describe('link test', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('/')
   })
 
   it('contain link description', () => {
