@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    command: ["yarn", "start"]
+  e2e:
+    build: e2e
+    depends_on:
+      app:
+        condition: service_started
+    environment:
+      - CYPRESS_baseUrl=http://app:3000
+    command: ["yarn", "test"]
