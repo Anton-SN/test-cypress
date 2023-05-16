@@ -1,0 +1,26 @@
+name: project
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install docker-compose
+
+      - name: Build and run Docker Compose
+        run: |
+          docker-compose up --exit-code-from e2e 
+
+      - name: Stop and remove Docker Compose containers
+        run: docker-compose down
+
