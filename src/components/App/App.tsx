@@ -12,7 +12,7 @@ function App(): JSX.Element {
         </p>
         <a
           className="App-link"
-          href="https://docs.cypress"
+          href="https://docs.cypress.io"
           target="_blank"
           rel="noopener noreferrer"
           data-testid="lint-to-docs"
