@@ -3,8 +3,6 @@ name: project
 on:
   push:
     branches: [ main ]
-    paths:
-      - '/'
 
 jobs:
   build:
@@ -13,11 +11,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Set up Docker Compose
-        run: |
-          sudo apt-get update
-          sudo apt-get -y install docker-compose
 
       - name: Build and run Docker Compose
         run: |
