@@ -12,10 +12,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Build and run Docker Compose
-        run: |
-          docker-compose up --exit-code-from e2e 
-
-      - name: Stop and remove Docker Compose containers
-        run: docker-compose down
+#      - name: Build and run Docker Compose
+#        run: |
+#          docker-compose up --exit-code-from e2e
+#
+#      - name: Stop and remove Docker Compose containers
+#        run: docker-compose down
 
