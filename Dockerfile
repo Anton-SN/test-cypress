@@ -9,7 +9,7 @@ COPY src ./src
 COPY public ./public
 COPY tsconfig.json .
 
-RUN yarn install
+RUN yarn install --production
 
 EXPOSE 3000
 
