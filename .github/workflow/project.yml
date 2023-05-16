@@ -3,6 +3,8 @@ name: project
 on:
   push:
     branches: [ main ]
+    paths:
+      - '/'
 
 jobs:
   build:
