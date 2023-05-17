@@ -16,13 +16,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: install dependencies
+      - name: Install dependencies
         run: yarn install
 
-      - name: lint and test
+      - name: Lint and test
         run: | 
           yarn lint &&
           yarn test
 
-      - name: build
+      - name: Build
         run: yarn build
