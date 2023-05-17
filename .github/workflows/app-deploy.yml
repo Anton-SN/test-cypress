@@ -1,29 +1,24 @@
-name: deploy-container
+name: app-deploy
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-  prepare:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: install dependencies
-        uses: yarn install
+        run: yarn install
 
-  lint and unit tests:
-    steps:
-      - name: lint
-      - run: yarn lint
+      - name: lint and test
+        run: | 
+          yarn lint &&
+          yarn test
 
-      - name: test
-      - run: yarn test
-
-  build:
-    steps:
       - name: build
-      - run: yarn build
+        run: yarn build
