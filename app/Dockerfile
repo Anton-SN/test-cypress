@@ -10,7 +10,8 @@ COPY public ./public
 COPY tsconfig.json .
 
 RUN yarn install --production
+RUN yarn build
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["yarn", "serve"]
