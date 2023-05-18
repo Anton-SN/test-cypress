@@ -36,7 +36,7 @@ jobs:
       - name: Build docker image
         run: | 
           docker build -t test-cypress-app:latest . &&
-          docker tag test-cypress-e2e:latest ${{ secrets.DOCKER_USERNAME }}/test-cypress-e2e:latest
+          docker tag test-cypress-app:latest ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
 
       - name: Push docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
