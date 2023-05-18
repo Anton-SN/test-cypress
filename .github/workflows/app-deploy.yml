@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build docker image
-        run: docker build . tag test-cypress-app:latest
+        run: docker build . tag test-cypress-app:latest .
 
       - name: Push docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
