@@ -1,14 +1,14 @@
+version: "3"
+
 services:
   app:
-    build: ../app
-    ports:
-      - "3000:3000"
-    command: ["yarn", "serve"]
+    build: ./app
+    command: ["nginx", "-g", "daemon off;"]
   e2e:
-    build: ../e2e
+    build: ./e2e
     depends_on:
       app:
         condition: service_started
     environment:
-      - CYPRESS_baseUrl=http://app:3000
-    command: ["yarn", "test"]
+      - CYPRESS_baseUrl=http://app:80
+    command: ["cypress", "run"]
