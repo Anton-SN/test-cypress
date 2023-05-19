@@ -41,7 +41,7 @@ jobs:
       - name: Push docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
 
-  e2e test:
+  e2e-test:
     runs-on: ubuntu-latest
 
     steps:
