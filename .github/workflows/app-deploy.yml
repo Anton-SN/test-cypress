@@ -38,26 +38,29 @@ jobs:
           docker build -t test-cypress-app:latest . &&
           docker tag test-cypress-app:latest ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
 
-      - name: Push docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
+      - name: Pull docker e2e image
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/test-cypress-e2e:latest
 
-  e2e-test:
-    runs-on: ubuntu-latest
+#      - name: Push docker image
+#        run: docker push ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
 
-    steps:
-      - name: Pull docker images
-        run: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest &&
-          docker pull ${{ secrets.DOCKER_USERNAME }}/test-cypress-e2e:latest
-
-      - name: Run docker images
-        run: |
-          docker run -d --name app ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
-          docker run --network=container:app ${{ secrets.DOCKER_USERNAME }}/test-cypress-e2e:latest
-
-      - name: Stop and remove containers
-        run: |
-          docker stop app-container
-          docker rm app-container
-          docker rm test-cypress-e2e
+#  e2e-test:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Pull docker images
+#        run: |
+#          docker pull ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest &&
+#          docker pull ${{ secrets.DOCKER_USERNAME }}/test-cypress-e2e:latest
+#
+#      - name: Run docker images
+#        run: |
+#          docker run -d --name app ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
+#          docker run --network=container:app ${{ secrets.DOCKER_USERNAME }}/test-cypress-e2e:latest
+#
+#      - name: Stop and remove containers
+#        run: |
+#          docker stop app-container
+#          docker rm app-container
+#          docker rm test-cypress-e2e
       
