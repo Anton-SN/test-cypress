@@ -41,6 +41,12 @@ jobs:
       - name: Pull docker e2e image
         run: docker pull ${{ secrets.DOCKER_USERNAME }}/test-cypress-e2e:latest
 
+      - name: e2e test
+        run: |
+          docker network create local-network
+          docker run --name app --network local-network test-cypress-app
+          docker run -it --rm --name e2e --network local-network -e CYPRESS_baseUrl=http://app:80 test-cypress-e2e
+
 #      - name: Push docker image
 #        run: docker push ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
 
