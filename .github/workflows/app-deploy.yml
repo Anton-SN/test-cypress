@@ -44,7 +44,7 @@ jobs:
       - name: e2e test
         run: |
           docker network create local-network
-          docker run --name app --network local-network test-cypress-app
+          docker run -d --name app --network local-network test-cypress-app
           docker run -it --rm --name e2e --network local-network -e CYPRESS_baseUrl=http://app:80 test-cypress-e2e
 
 #      - name: Push docker image
