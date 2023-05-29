@@ -53,7 +53,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: app/build
 
 #      - name: Push docker image
 #        run: docker push ${{ secrets.DOCKER_USERNAME }}/test-cypress-app:latest
