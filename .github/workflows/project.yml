@@ -18,6 +18,7 @@ jobs:
           yarn install &&
           yarn lint &&
           yarn test &&
+          yarn build &&
           cd ..
 
       - name: Run compose
