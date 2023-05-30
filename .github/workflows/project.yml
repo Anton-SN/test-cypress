@@ -1,4 +1,4 @@
-name: app-deploy
+name: compose
 
 on:
   push:
